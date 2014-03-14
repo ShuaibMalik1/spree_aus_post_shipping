@@ -22,18 +22,12 @@ CONFIGURATION
 In your Spree Initialiser add the following lines
 ```ruby
 Spree::AusPostShipping::Config = Spree::AusPostShippingConfiguration.new
-Spree::AusPostShipping::Config[ :origin_postcode ] =  -- post code your shipping from --
-
-Spree::AusPostShipping::Config[ :default_width ] = -- default width for an order (cms) --
-
-Spree::AusPostShipping::Config[ :default_height ] = -- default height for an order (cms) --
-
-Spree::AusPostShipping::Config[ :default_length ] = -- default length for an order (cms) --
-
-Spree::AusPostShipping::Config[ :default_weight ] = -- default weight for an order (cms) --
-
-Spree::AusPostShipping::Config[ :api_key ] = -- obtain your API key from australia post ---
-
+Spree::AusPostShipping::Config[ :origin_postcode ] =  < shipping origin postcode >
+Spree::AusPostShipping::Config[ :default_width ] = < default width (cms) >
+Spree::AusPostShipping::Config[ :default_height ] = < default height (cms)>
+Spree::AusPostShipping::Config[ :default_length ] = < default length (cms) >
+Spree::AusPostShipping::Config[ :default_weight ] = < default weight (cms) >
+Spree::AusPostShipping::Config[ :api_key ] = < your API key from australia post >
 Spree::AusPostShipping::Config[ :service_types ] = ['aus_parcel_regular']	# change for other shipping types
 ```
 
