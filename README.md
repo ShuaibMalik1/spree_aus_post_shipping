@@ -20,9 +20,7 @@ CONFIGURATION
 =============
 
 In your Spree Initialiser add the following lines
-
-`
-Spree::AusPostShipping::Config = Spree::AusPostShippingConfiguration.new
+`Spree::AusPostShipping::Config = Spree::AusPostShippingConfiguration.new
 Spree::AusPostShipping::Config[ :origin_postcode ] =  -- post code your shipping from --
 
 Spree::AusPostShipping::Config[ :default_width ] = -- default width for an order (cms) --
@@ -44,9 +42,7 @@ calculate the correct delivery fees. The service_type will select the type of sh
 
 SEED DATA
 =============
-
-`
-  begin
+`begin
     australia = Spree::Zone.find_by_name!("Australia")
     puts "found it"
   rescue ActiveRecord::RecordNotFound
@@ -68,8 +64,8 @@ SEED DATA
   shipping_methods.each do |shipping_method_attrs|
     ship_method = Spree::ShippingMethod.create!(shipping_method_attrs )
     ship_method.save!
-  end
-`
+  end`
+
 
 Hope you enjoy. Contributions welcome.
 
