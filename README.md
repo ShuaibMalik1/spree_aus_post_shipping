@@ -20,7 +20,8 @@ CONFIGURATION
 =============
 
 In your Spree Initialiser add the following lines
-`Spree::AusPostShipping::Config = Spree::AusPostShippingConfiguration.new
+```ruby
+Spree::AusPostShipping::Config = Spree::AusPostShippingConfiguration.new
 Spree::AusPostShipping::Config[ :origin_postcode ] =  -- post code your shipping from --
 
 Spree::AusPostShipping::Config[ :default_width ] = -- default width for an order (cms) --
@@ -33,7 +34,8 @@ Spree::AusPostShipping::Config[ :default_weight ] = -- default weight for an ord
 
 Spree::AusPostShipping::Config[ :api_key ] = -- obtain your API key from australia post ---
 
-Spree::AusPostShipping::Config[ :service_types ] = ['aus_parcel_regular']	# change for other shipping types`
+Spree::AusPostShipping::Config[ :service_types ] = ['aus_parcel_regular']	# change for other shipping types
+```
 
 The Calculator will sum up any dimensions or weight information from order line items. If these aren't available
 then the shipping fees will be calculated with the default settings. The origin_postcode needs to the set to
