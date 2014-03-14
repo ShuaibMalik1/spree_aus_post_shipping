@@ -21,18 +21,55 @@ CONFIGURATION
 
 In your Spree Initialiser add the following lines
 
-`Spree::AusPostShipping::Config = Spree::AusPostShippingConfiguration.new
+`
+Spree::AusPostShipping::Config = Spree::AusPostShippingConfiguration.new
 Spree::AusPostShipping::Config[ :origin_postcode ] =  -- post code your shipping from --
+
 Spree::AusPostShipping::Config[ :default_width ] = -- default width for an order (cms) --
+
 Spree::AusPostShipping::Config[ :default_height ] = -- default height for an order (cms) --
+
 Spree::AusPostShipping::Config[ :default_length ] = -- default length for an order (cms) --
+
 Spree::AusPostShipping::Config[ :default_weight ] = -- default weight for an order (cms) --
+
 Spree::AusPostShipping::Config[ :api_key ] = -- obtain your API key from australia post ---
+
 Spree::AusPostShipping::Config[ :service_types ] = ['aus_parcel_regular']	# change for other shipping types`
 
 The Calculator will sum up any dimensions or weight information from order line items. If these aren't available
 then the shipping fees will be calculated with the default settings. The origin_postcode needs to the set to
 calculate the correct delivery fees. The service_type will select the type of shipping.
+
+
+SEED DATA
+=============
+
+`
+  begin
+    australia = Spree::Zone.find_by_name!("Australia")
+    puts "found it"
+  rescue ActiveRecord::RecordNotFound
+    puts "Couldn't find 'Australia' zone."
+    exit
+  end
+
+  shipping_category = Spree::ShippingCategory.find_or_create_by_name!('Default')
+
+  shipping_methods = [
+    {
+      :name => "Australia Post eParcel",
+      :zones => [australia],
+      :calculator => Spree::Calculator::Shipping::AusPostShipping.create!,
+      :shipping_categories => [shipping_category]
+    },
+  ]
+
+  shipping_methods.each do |shipping_method_attrs|
+    ship_method = Spree::ShippingMethod.create!(shipping_method_attrs )
+    ship_method.save!
+  end
+`
 
 Hope you enjoy. Contributions welcome.
 
