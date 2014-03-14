@@ -42,7 +42,8 @@ calculate the correct delivery fees. The service_type will select the type of sh
 
 SEED DATA
 =============
-`begin
+```ruby
+  begin
     australia = Spree::Zone.find_by_name!("Australia")
     puts "found it"
   rescue ActiveRecord::RecordNotFound
@@ -64,7 +65,8 @@ SEED DATA
   shipping_methods.each do |shipping_method_attrs|
     ship_method = Spree::ShippingMethod.create!(shipping_method_attrs )
     ship_method.save!
-  end`
+  end
+  ```
 
 
 Hope you enjoy. Contributions welcome.
