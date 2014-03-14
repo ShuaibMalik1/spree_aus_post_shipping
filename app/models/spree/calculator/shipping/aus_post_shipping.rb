@@ -19,7 +19,7 @@ module Spree
       end
 
       def available?(package)
-        if !package.order.ship_adddress.nil? && !package.order.ship_address.zipcode.nil?
+        if !package.order.ship_address.nil? && !package.order.ship_address.zipcode.nil?
           @shipping_fee = calculate_shipping(package)
           !@shipping_fee.nil?
         else
@@ -28,7 +28,7 @@ module Spree
       end
     
       def compute(package)
-        if !package.order.ship_adddress.nil? && !package.order.ship_address.zipcode.nil?
+        if !package.order.ship_address.nil? && !package.order.ship_address.zipcode.nil?
           if @shipping_fee.nil?
             @shipping_fee = calculate_shipping(package)
            end
