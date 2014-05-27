@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_aus_post_shipping'
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.summary     = 'A Shipping Calculator for Australia Post Parcels'
   s.description = 'A Shipping Calculator for Australia Post Parcels utilising the AusPost postage calculator API for shipping fee calcualtions'
   s.required_ruby_version = '>= 1.9.2'
